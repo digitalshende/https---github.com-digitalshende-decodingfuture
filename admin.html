@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Console Login</title>
+  <link rel="stylesheet" href="css\adminstyle.css">
+</head>
+<body>
+  <nav class="navbar">
+        <div class="logo">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiPNU7MB87dDSj3U8BAd0gaWOoK8ttyc-caRobRm7pXqR8pDwAyXtPTRwTDs5th0Dh7bqp3n9DklEc1KmNlmHtvDgH2RZd1huc6AAHbQXGQuLbN1V0qu-J52AeCKdYtnP2LEucYo1U23YuOq-zRT5p-mvdilsL4G7oFD4OgCt4jdBtbuF9X9YD3lAJo9o/s776/logo1.jpg" alt="Logo" class="img">
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">AboutUs</a></li>
+            <li><a href="sevi.html">Services</a></li>
+            <li class="dropdown">
+                <a href="#">ITTools</a>
+                <div class="dropdown-content">
+                    <a href="p1.html" target="_blank">Artificial Intelligence</a>
+                    <a href="p2.html" target="_blank">Machine Learning</a>
+                    <a href="p4.html" target="_blank">Data Science</a>
+                    <a href="p3.html" target="_blank">Cyber Security</a>
+                </div>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="book&resou.html">Books&Resources</a></li>
+            <li><a href="f1.html">Feedback</a></li>
+            <li><a href="contact1.html">Contact</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+    </nav>
+
+  <div class="container">
+    <h1>Admin Console Login</h1>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required><br><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("contextmenu", (event) => {
+       event.preventDefault();
+    });
+  </script>
+
+  <script src="js\admin.js"></script>
+</body>
+</html>

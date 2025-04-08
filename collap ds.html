@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Data Science FAQ</title>
+<style>
+  /* General Styling */
+   body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #FAF9F6, #00509E); /* Updated Background */
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    animation: slideIn 1s ease-in-out;
+  }
+
+  /* Collapsible Button Styling */
+  .collapsible {
+    background: #4A3B66;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Add arrow icons */
+  .collapsible::after {
+    content: '\25BC'; /* Down arrow */
+    font-size: 14px;
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Change arrow direction when active */
+  .active::after {
+    transform: rotate(180deg);
+  }
+
+  .collapsible:hover {
+    background: #333;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Content Box */
+  .content {
+    padding: 15px;
+    display: none;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* Show animation */
+  .content.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Keyframe Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .collapsible {
+      font-size: 16px;
+    }
+  }
+  /* Exit Button Styling */
+  .exit-button {
+    background: #FF6347;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .exit-button:hover {
+    background: #FF4500;
+  }
+
+</style>
+</head>
+<body>
+
+<h2>Data Science FAQs</h2>
+<!-- Exit Button -->
+<button class="exit-button" onclick="exitPage()">Exit to FAQ</button>
+
+<button type="button" class="collapsible">What is Data Science?</button>
+<div class="content">
+  <p>Data Science is an interdisciplinary field that uses statistics, algorithms, machine learning, and data analysis techniques to extract meaningful insights from structured and unstructured data.</p>
+</div>
+
+<button type="button" class="collapsible">What are the key components of Data Science?</button>
+<div class="content">
+  <p>The key components of Data Science include:<br>
+  1. Data Collection<br>
+  2. Data Cleaning & Preprocessing<br>
+  3. Exploratory Data Analysis (EDA)<br>
+  4. Machine Learning & AI</p>
+</div>
+
+<button type="button" class="collapsible">What programming languages are commonly used in Data Science?</button>
+<div class="content">
+  <p>The most commonly used languages are:<br>
+  1. Python (most popular due to its vast libraries)<br>
+  2. R (commonly used in statistical analysis)<br>
+  3. SQL (for database management)</p>
+</div>
+
+<button type="button" class="collapsible">What are some common Data Science job roles?</button>
+<div class="content">
+  <p>1. Data Scientist (Builds ML models & analyzes data)<br>
+  2. Machine Learning Engineer (Deploys ML models in production)</p>
+</div>
+
+<script>
+  // Collapsible functionality with smooth animation
+  document.querySelectorAll(".collapsible").forEach(button => {
+    button.addEventListener("click", function () {
+      this.classList.toggle("active");
+      let content = this.nextElementSibling;
+      
+      if (content.classList.contains("show")) {
+        content.classList.remove("show");
+        setTimeout(() => {
+          content.style.display = "none";
+        }, 500); // Delay to match animation time
+      } else {
+        content.style.display = "block";
+        setTimeout(() => {
+          content.classList.add("show");
+        }, 10);
+      }
+    });
+  });
+  
+   // Exit Button Functionality: Go to FAQ page
+  function exitPage() {
+    // Redirect to the FAQ page (You can use a relative or full URL)
+    window.location.href = "faq.html"; // Replace 'faq.html' with the actual FAQ page URL if different
+  }
+</script>
+
+</body>
+</html>

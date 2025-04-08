@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Members</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #2E1A47, #005F5F);
+            animation: fadeInBackground 2s ease-in-out;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            background: none;
+            border-radius: 15px;
+            box-shadow: none;
+            animation: slideIn 1s ease-in-out;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+        .member {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: fadeInUp 1s ease-in-out forwards;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+        .member:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+        }
+        .member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        .member:hover img {
+            transform: scale(1.1);
+        }
+        .info {
+            margin-top: 10px;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .member:hover .info {
+            max-height: 200px;
+            opacity: 1;
+        }
+        .info h3 {
+            font-size: 24px;
+            color: #333;
+        }
+        .info p {
+            font-size: 18px;
+            color: #555;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInBackground {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="member" style="animation-delay: 0.2s;">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdGRWNVyxasV7GXj47eTtK7aFh-OvxbERbJw09O_VVmc1pT5FD0gnz1F3harmoJGYLisqx3Mn-abxSmaBqbgioIiqfx3osR2HOWEFkjqUrJmebiiZD4LMhtu10WrlSZw_Ci8XRp8r2B4XfL0jN27e5hKTZDlUILo4ZI6p0Du73DSogrIq9f-9d2a_qjS0/s320/WhatsApp%20Image%202025-03-11%20at%201.43.42%20AM.jpeg" alt="Pooja">
+            <div class="info">
+                <h3>Pooja Sutar</h3>
+                <p>BCA Student<br> Maharshi Karve Stree Shikshan Santhas Satara</p>
+            </div>
+        </div>
+        <div class="member" style="animation-delay: 0.4s;">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDBuBEr0lU9wkoqbzxT-yArryqSuQ6ZtBJRTwUVJ41aRdmzW0b0hHHax8AQxaR7kmZ9cD-3mN3_C8NncGzpeQ3rvuHovWDS63Qa19xOHX28ZJzTlLi5Y2Ai27g_1mrIsGgIOFpCPzoyGw7oQJxrJ_y3ubHGEFvhY5usAKQjoFawQ5jOii2Lz5WMBnrONY/s320/WhatsApp%20Image%202025-03-11%20at%201.43.51%20AM.jpeg" alt="Shreya">
+            <div class="info">
+                <h3>Shreya Magare</h3>
+                <p>BCA Student<br> Maharshi Karve Stree Shikshan Santhas Satara</p>
+            </div>
+        </div>
+        <div class="member" style="animation-delay: 0.6s;">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjazN0BFdIYRuIe4Tn8jhPv2Xoz7WyqhlspNKaN5KoZjPJaVLczIOAdjxnqszp1gu5qQoeVBUBnfUXGvnGacWOcaSbT80nzTcmRKbrxD9BK7WP7cZLCz8ONh77WTTU2k0I_7VTgH66oXgD9sj9WMM9266khqZIpWXHzIVcSosq-gF8PArc_JnGCfIio41I/s320/WhatsApp%20Image%202025-03-11%20at%201.43.33%20AM.jpeg" alt="Pranali">
+            <div class="info">
+                <h3>Pranali Sabale</h3>
+                <p>BCA Student<br> Maharshi Karve Stree Shikshan Santhas Satara</p>
+            </div>
+        </div>
+        <div class="member" style="animation-delay: 0.8s;">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhE14y2Ae0rLiVC7dRPeoS3pxCTH1tQpr-MUKRyXMVvNuRYlzJ4A-MuzS5S6ogNWAJSXpw9w4bXBwYBuzGs5eHZHFwf3NqagASVMdzD5za9v4ZBpO8JjsvjALIt0iZMWeylMtxWWi7rB3TCF2WDf5cj295lxeUAOO8LSqxJ2d3zd0Dfo8ggIZyf8gAhjy0/s320/WhatsApp%20Image%202025-03-11%20at%201.24.02%20AM.jpeg" alt="Siddhi">
+            <div class="info">
+                <h3>Siddhi Sulke</h3>
+                <p>BCA Student<br> Maharshi Karve Stree Shikshan Santhas Satara</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

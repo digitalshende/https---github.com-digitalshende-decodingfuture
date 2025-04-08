@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoding The Future</title> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        .containerrr-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+            flex-grow: 1;
+        }
+        .containerrr {
+            width: 300px;
+            height: 350px;
+            margin: 15px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+        .containerrr:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            color: #007BFF;
+        }
+        pre {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+            overflow-x: auto;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .maincontent {
+            flex-grow: 1;
+            width: 100vw;
+            padding-bottom: 80px; /* Make space for footer */
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            margin-top: auto;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #007BFF;
+        }
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+        .footer-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .footer-section {
+            width: 30%;
+            padding: 10px;
+            text-align: left;
+        }
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            padding: 15px 30px; /* Add horizontal padding */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeInNavbar 1s ease-out, backgroundColorChange 0.5s ease;
+        }
+        .navbar .logo img {
+            height: 10vh;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .navbar:hover .logo img {
+            transform: scale(1.1);
+        }
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .hamburger.active {
+            transform: rotate(90deg);
+            color: #007BFF;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px; /* Add space between the nav items */
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .nav-links li {
+            margin: 0;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            border-radius: 5px; /* Optional: round corners for buttons */
+            transition: background-color 0.3s;
+        }
+        .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+        }
+        .nav-links .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .nav-links li:hover {
+            background-color: #555;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                transform: translateX(-100%);
+            }
+            .nav-links.active {
+                display: flex;
+                transform: translateX(0);
+            }
+            .nav-links li {
+                padding: 10px 0;
+                text-align: center;
+                border-bottom: 1px solid #444;
+            }
+        }
+
+        /* Navbar fade-in animation */
+        @keyframes fadeInNavbar {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navbar background color change animation */
+        @keyframes backgroundColorChange {
+            0% {
+                background-color: #000;
+            }
+            100% {
+                background-color: #333;
+            }
+        }
+
+        /* Hover effect for navbar */
+        .nav-links li:hover {
+            background-color: #444;
+            transform: translateX(10px);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiPNU7MB87dDSj3U8BAd0gaWOoK8ttyc-caRobRm7pXqR8pDwAyXtPTRwTDs5th0Dh7bqp3n9DklEc1KmNlmHtvDgH2RZd1huc6AAHbQXGQuLbN1V0qu-J52AeCKdYtnP2LEucYo1U23YuOq-zRT5p-mvdilsL4G7oFD4OgCt4jdBtbuF9X9YD3lAJo9o/s776/logo1.jpg" alt="Logo" class="img">
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links" id="navLinks">
+            <li onclick="closeMenu()"><a href="index.html">Home</a></li>
+            <li onclick="closeMenu()"><a href="aboutus.html">AboutUs</a></li>
+            <li onclick="closeMenu()"><a href="sevi.html">Services</a></li>
+            <li class="dropdown">
+                <a href="#">ITTools</a>
+                <div class="dropdown-content">
+                    <a href="p1.html" target="_blank">Artificial Intelligence</a>
+                    <a href="p2.html" target="_blank">Machine Learning</a>
+                    <a href="p4.html" target="_blank">Data Science</a>
+                    <a href="p3.html" target="_blank">Cyber Security</a>
+                </div>
+            </li>
+            <li onclick="closeMenu()"><a href="blog.html">Blog</a></li>
+            <li onclick="closeMenu()"><a href="faq.html">FAQ</a></li>
+            <li onclick="closeMenu()"><a href="quiz.html">Quiz</a></li>
+            <li onclick="closeMenu()"><a href="book&resou.html">Books&Resources</a></li>
+            <li onclick="closeMenu()"><a href="f1.html">Feedback</a></li>
+            <li onclick="closeMenu()"><a href="contact1.html">Contact</a></li>
+            <li onclick="closeMenu()"><a href="admin.html">Admin</a></li>
+        </ul>
+    </nav>
+
+    <div class="maincontent">
+        <header>
+            <h1>Decoding The Future</h1>
+            <h2>Services</h2>
+            <p>Explore AI, Cybersecurity, Machine Learning & Data Science</p>
+        </header>
+
+        <div class="containerrr-wrapper">
+            <div class="containerrr" style="animation-delay: 0.2s;">
+                <h2>Artificial Intelligence</h2>
+                <p>Artificial Intelligence is transforming the way businesses operate. Our AI solutions range from chatbots and automation tools to advanced machine learning algorithms.</p>
+            </div>
+            <div class="containerrr" style="animation-delay: 0.4s;">
+                <h2>Cybersecurity</h2>
+                <p>Cyber threats are evolving, and businesses must stay protected. Our cybersecurity services provide penetration testing, network security, ethical hacking, and data encryption.</p>
+            </div>
+            <div class="containerrr" style="animation-delay: 0.6s;">
+                <h2>Machine Learning</h2>
+                <p>Machine Learning (ML) helps businesses analyze data, predict trends, and automate decision-making.</p>
+            </div>
+            <div class="containerrr" style="animation-delay: 0.8s;">
+                <h2>Data Science</h2>
+                <p>Data Science is crucial for understanding large datasets and making informed decisions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-logo">
+            <a href="#" class="logo-link">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiPNU7MB87dDSj3U8BAd0gaWOoK8ttyc-caRobRm7pXqR8pDwAyXtPTRwTDs5th0Dh7bqp3n9DklEc1KmNlmHtvDgH2RZd1huc6AAHbQXGQuLbN1V0qu-J52AeCKdYtnP2LEucYo1U23YuOq-zRT5p-mvdilsL4G7oFD4OgCt4jdBtbuF9X9YD3lAJo9o/s776/logo1.jpg" alt="IT Tools Logo"/>
+            </a>
+        </div>
+
+        <div class="footer-info">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Satara, India</p>
+                <p><a class="footer-link" href="mailto:ittools512@gmail.com">ittools512@gmail.com</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Developers 2025</h3>
+                <p>Maharshi Karve Mahila Maha Vidyalaya</p>
+                <p>Pranali Sabale | Pooja Sutar | Siddhi Sulke | Shreya Magare</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">© 2025 IT Tools | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+        }
+        function closeMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

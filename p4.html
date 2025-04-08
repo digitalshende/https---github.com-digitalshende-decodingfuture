@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Section with Animated Containers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141413;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .dropdown {
+            background-color: #333;
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+        }
+
+        .dropdown select {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        /* Container Styling */
+        .container {
+            padding: 20px;
+            background-color: #f8f6d0;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Sub-container Styling */
+        .sub-container {
+            display: none;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Button Styling */
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <!-- Artificial Intelligence Section -->
+        <div id="ai" class="container" style="display: block;">
+            <h2>Data Science</h2>
+            <button onclick="toggleSubContainers('ai')">View More</button>
+            <div id="ai-sub1" class="sub-container">
+                <h3>Data Science Tools for Students & Education Sector</h3>
+                <p>Overview: Data science will power predictive analytics, financial fraud detection, and macroeconomic modeling.</p>
+                <hr>
+                <p>Examples: 📊 AI-Powered Learning Analytics – "EduInsight DS" analyzing student performance data to provide personalized learning.<br>
+                    📊 Automated Research & Citation AI – "ScholarAI" using data science to summarize academic research and suggest relevant citations.<br>
+                    📊 AI-Powered Career Guidance – "FuturePath DS" analyzing job market trends and student skills to suggest career paths<br>
+                    📊 Real-Time Adaptive Learning Systems – "SmartLearn AI" processing big data to adapt coursework based on student progress.
+                </p>
+            </div>
+            <div id="ai-sub2" class="sub-container">
+                <h3>Data Science Tools for Economics & Finance</h3>
+                <p>Overview: Financial institutions will need AI-powered fraud detection, blockchain security, and real-time threat intelligence to combat cybercrimes in global markets.</p>
+                <hr>
+                <p>Examples: 💰 AI-Powered Financial Forecasting – "FinPredict DS" analyzing market trends and global economic indicators.<br>
+                    💰 Real-Time Risk Assessment AI – "RiskAI DS" predicting economic downturns and financial crises using big data analytics.<br>
+                    💰 AI-Powered Fraud Detection – "FraudShield DS" detecting anomalies in banking transactions to prevent financial fraud.<br>
+                    💰 Blockchain-Enabled Data Security – "CryptoSecure AI" using data science and AI to protect financial transactions.<br> 
+                    💰 Predictive Economic Policy Simulator – "EcoPolicy AI" analyzing historical data to recommend the best economic policies.
+                </p>
+            </div>
+            <div id="ai-sub3" class="sub-container">
+                <h3>Data Science Tools for Social & Governance</h3>
+                <p>Overview: Data science will enhance crime prevention, social program efficiency, and misinformation detection.</p>
+                <hr>
+                <p>Examples: 🏙️ AI-Based Crime Prediction – "CrimeMap DS" analyzing historical crime data to predict high-risk areas.<br>
+                    🏙️ AI-Driven Social Sentiment Analysis – "PublicPulse AI" tracking public opinion on social issues and government policies.<br>
+                    🏙️ Urban Planning & Smart Cities AI – "CityFlow DS" analyzing traffic, pollution, and energy usage for optimized city management.<br>
+                    🏙️ Big Data in Disaster Response – "DisasterPredict DS" predicting natural disasters and optimizing emergency responses.<br>
+                    🏙️ AI for Misinformation Detection – "TruthAI DS" analyzing social media trends to identify and stop fake news propagation.
+                </p>
+            </div>
+            <div id="ai-sub4" class="sub-container">
+                <h3>Data Science Tools for Defence & National Security</h3>
+                <p>Overview: Data science will power military intelligence, cybersecurity, and autonomous defense systems.</p>
+                <hr>
+                <p>Examples: 🛡️ AI-Driven Cybersecurity Analytics – "CyberSentinel DS" analyzing network patterns to prevent cyber-attacks.<br>
+                    🛡️ Data-Driven Warfare Simulations – "WarSim AI" using historical battle data to train defense forces with AI-powered war scenarios.<br>
+                    🛡️ Autonomous Drone Data Analysis – "SkyRecon DS" processing real-time surveillance footage for threat detection.<br>
+                    🛡️ Quantum Data Security AI – "QuantumShield DS" encrypting defense communications with advanced quantum cryptography.
+                </p>
+            </div>
+        </div>
+
+        <!-- Exit Button -->
+        <div class="button-container">
+            <button onclick="exitPage()">Exit</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubContainers(category) {
+            var subContainers = document.querySelectorAll(`#${category} .sub-container`);
+            subContainers.forEach(sub => {
+                sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+            });
+        }
+
+        // Function to handle the exit action
+        function exitPage() {
+            if (window.close) {
+                window.close(); // Attempt to close the window (might not work due to browser restrictions)
+            } else {
+                window.location.href = 'https://www.example.com'; // Redirect to another page, e.g., homepage
+            }
+        }
+    </script>
+</body>
+</html>

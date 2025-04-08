@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Section with Animated Containers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141413;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .dropdown {
+            background-color: #333;
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+        }
+
+        .dropdown select {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        /* Container Styling */
+        .container {
+            padding: 20px;
+            background-color: #f8f6d0;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Sub-container Styling */
+        .sub-container {
+            display: none;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Button Styling */
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <!-- Artificial Intelligence Section -->
+        <div id="ai" class="container" style="display: block;">
+            <h2>Machine Learning</h2>
+            <button onclick="toggleSubContainers('ai')">View More</button>
+            <div id="ai-sub1" class="sub-container">
+                <h3>ML Tools for Students & Education Sector</h3>
+                <p>Overview:
+                    Machine Learning will personalize learning experiences, automate grading, and enhance educational research & career guidance.
+                </p>
+                <hr>
+                <p>Examples:
+				
+                    📚 AI-Powered Smart Tutors – "LearnMate ML" adapting lessons based on individual learning patterns and progress tracking.<br>
+                    📚 Automated Research Assistants – "PaperBot AI" summarizing research papers, generating citations, and analyzing trends.<br>
+                    📚 ML-Driven Career Prediction – "PathFinder AI" matching students’ skills to future job market demands.<br>
+                    📚 Exam Integrity & Proctoring AI – "ExamSecure ML" using ML-based facial & behavioral analysis to prevent cheating.
+                </p>
+            </div>
+            <div id="ai-sub2" class="sub-container">
+                <h3>ML Tools for Economics & Finance</h3>
+                <p>Overview:
+                    ML will drive real-time economic forecasting, financial fraud detection, and automated financial decision-making.
+                </p>
+                <hr>
+                <p>Examples:
+                    💰 ML-Based Stock Market Predictors – "TradeGenius ML" analyzing market trends and predicting stock movements.<br>
+                    💰 Autonomous Risk Assessment AI – "RiskScan AI" evaluating economic risks and predicting downturns.<br>
+                    💰 Fraud Detection AI – "FinShield ML" detecting suspicious transactions and financial fraud patterns.<br>
+                    💰 Personalized Investment Advisors – "WealthMind AI" providing automated investment recommendations based on ML predictions.
+                </p>
+            </div>
+            <div id="ai-sub3" class="sub-container">
+                <h3>ML Tools for Social & Governance</h3>
+                <p>Overview:
+                    Machine Learning will improve crime prevention, social welfare optimization, and urban planning.
+                </p>
+                <hr>
+                <p>Examples:
+                    🏙️ Predictive Crime Analytics – "CrimeWatch ML" identifying potential crime hotspots and suggesting preventive measures.<br>
+                    🏙️ Social Media Sentiment Analysis – "SocialPulse AI" monitoring public opinion and identifying misinformation trends.<br>
+                    🏙️ Smart City Traffic Optimization – "UrbanFlow ML" predicting and reducing traffic congestion using real-time data.<br>
+                    🏙️ ML-Powered Welfare Distribution – "AidOptimizer AI" analyzing poverty patterns and allocating resources efficiently.
+                </p>
+            </div>
+            <div id="ai-sub4" class="sub-container">
+                <h3>ML Tools for Defence & National Security</h3>
+                <p>Overview:
+                    Machine Learning will power cybersecurity, military simulations, and AI-driven threat intelligence.
+                </p>
+                <hr>
+                <p>Examples:
+                    🛡️ Autonomous Threat Detection AI – "CyberSentinel ML" scanning global networks for cyber threats and attacks.<br>
+                    🛡️ AI-Powered Warfare Simulations – "BattleMind ML" training soldiers through predictive battle scenarios.<br>
+                    🛡️ ML-Based Drone Surveillance – "SkyGuard AI" enabling autonomous drone reconnaissance and threat identification.<br>
+                    🛡️ Quantum Cybersecurity AI – "QuantumDefend ML" protecting defense networks against quantum cyberattacks.
+                </p>
+            </div>
+        </div>
+
+        <!-- Buttons for navigation -->
+        <div class="button-container">
+           <button onclick="exitPage()">Exit</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubContainers(category) {
+            var subContainers = document.querySelectorAll(`#${category} .sub-container`);
+            subContainers.forEach(sub => {
+                sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+            });
+        }
+
+        // Function to handle navigation between sections
+        function navigateTo(direction) {
+            const containers = document.querySelectorAll('.sub-container');
+            let currentVisible = Array.from(containers).findIndex(container => container.style.display === 'block');
+            if (direction === 'next' && currentVisible < containers.length - 1) {
+                containers[currentVisible].style.display = 'none';
+                containers[currentVisible + 1].style.display = 'block';
+            } else if (direction === 'previous' && currentVisible > 0) {
+                containers[currentVisible].style.display = 'none';
+                containers[currentVisible - 1].style.display = 'block';
+            }
+        }
+
+        // Function to handle the exit action
+        function exitPage() {
+            if (window.close) {
+                window.close(); // Attempt to close the window (might not work due to browser restrictions)
+            } else {
+                window.location.href = 'https://www.example.com'; // Redirect to another page, e.g., homepage
+            }
+        }
+    </script>
+</body>
+</html>

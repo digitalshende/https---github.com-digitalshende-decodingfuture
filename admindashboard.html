@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/admindashboardstyle.css" />
+    <title>Project Name: Admin Panel</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo">
+        <img
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiPNU7MB87dDSj3U8BAd0gaWOoK8ttyc-caRobRm7pXqR8pDwAyXtPTRwTDs5th0Dh7bqp3n9DklEc1KmNlmHtvDgH2RZd1huc6AAHbQXGQuLbN1V0qu-J52AeCKdYtnP2LEucYo1U23YuOq-zRT5p-mvdilsL4G7oFD4OgCt4jdBtbuF9X9YD3lAJo9o/s320/logo1.jpg"
+          alt="user"
+        />
+      </div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact Me</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <button class="toggle" id="toggle">
+        <i class="fa fa-bars fa-2x"></i>
+      </button>
+      <h1>Welcome to Admin Panel</h1>
+      <p>
+       Project By:
+      </p>
+      <button class="cta-btn" <li onclick="closeMenu()"><a href="index.html">Log Out</a></li></button>
+	 
+    </header>
+
+    <div class="container">
+      <img
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdDdZ3TX0ZOwl8k533KR9N2y3aSey9hGZ0ZYNjYhoiSJ1xny6KtLbraQaJvljLOpGoF5RNRnDiij4zdlgIWn4xoHhtMjDyXeagwrTvrbVyGIHLXSlp54OZxYBiH2F3Ss4szMn0WbzDmgxHDKt2o2wymojMkzdAsyXwZWj-XWxlmXg3qGUkSdlzfrYyWT4/s320/computer.jpg.webp"
+      />
+      <h2>Welcome to Admin Panel</h2>
+      <p>
+      Content
+      </p>
+      <p>
+       Content
+      </p>
+    </div>
+
+    <script>
+      document.getElementById("exit-btn").addEventListener("click", function () {
+        if (confirm("Are you sure you want to exit?")) {
+          window.close();
+        }
+      });
+    </script>
+    
+    <script src="js/admindashboardscript.js"></script>
+  </body>
+</html>

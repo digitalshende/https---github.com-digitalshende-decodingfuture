@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #2c3e50; /* Dark background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure body takes full height */
+      margin-top: 80px; /* To avoid content being hidden under fixed navbar */
+    }
+
+    /* Header styles */
+    h1 {
+      color: #ecf0f1;
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    /* Transparent Container for links */
+    .programs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+      gap: 20px;
+      justify-items: center;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+      padding: 20px;
+      border-radius: 12px; /* Rounded corners */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Light shadow for contrast */
+      width: 80%; /* Width adjusted to fit the screen */
+    }
+
+    /* Common link styles (styled as buttons) */
+    .program-link {
+      padding: 18px 36px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      color: white;
+      width: 150px; /* Fixed width */
+      height: 150px; /* Fixed height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #34495e; /* Default background color */
+      background-size: cover;
+      background-position: center;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      transform: rotate(45deg); /* Rotated to form a diamond shape */
+      text-decoration: none; /* Remove underline */
+    }
+
+    /* Program link hover effect */
+    .program-link:hover {
+      transform: translateY(-5px) scale(1.1) rotate(45deg); /* Maintain diamond shape */
+      background-color: #2c3e50; /* Darker blue on hover */
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Program link active effect */
+    .program-link:active {
+      transform: scale(0.98) rotate(45deg); /* Maintain diamond shape on click */
+    }
+
+    /* Specific program link background colors */
+    .program1 {
+      background-color: #34495e; /* Dark Blue */
+    }
+
+    .program2 {
+      background-color: #c0392b; /* Dark Red */
+    }
+
+    .program3 {
+      background-color: #16a085; /* Dark Green */
+    }
+
+    .program4 {
+      background-color: #f39c12; /* Dark Yellow */
+    }
+
+    /* Navbar styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 15px 30px; /* Add horizontal padding */
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      animation: fadeInNavbar 1s ease-out, backgroundColorChange 0.5s ease;
+    }
+
+    .navbar .logo img {
+      height: 10vh;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar:hover .logo img {
+      transform: scale(1.1);
+    }
+
+    .hamburger {
+      font-size: 30px;
+      cursor: pointer;
+      display: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .hamburger.active {
+      transform: rotate(90deg);
+      color: #007BFF;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 20px; /* Add space between the nav items */
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .nav-links li {
+      margin: 0;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+      border-radius: 5px; /* Optional: round corners for buttons */
+      transition: background-color 0.3s;
+    }
+
+    .nav-links .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+    }
+
+    .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .nav-links li:hover {
+      background-color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        transform: translateX(-100%);
+      }
+      .nav-links.active {
+        display: flex;
+        transform: translateX(0);
+      }
+      .nav-links li {
+        padding: 10px 0;
+        text-align: center;
+        border-bottom: 1px solid #444;
+      }
+    }
+
+    /* Navbar fade-in animation */
+    @keyframes fadeInNavbar {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Navbar background color change animation */
+    @keyframes backgroundColorChange {
+      0% {
+        background-color: #000;
+      }
+      100% {
+        background-color: #333;
+      }
+    }
+
+    /* Hover effect for navbar */
+    .nav-links li:hover {
+      background-color: #444;
+      transform: translateX(10px);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiPNU7MB87dDSj3U8BAd0gaWOoK8ttyc-caRobRm7pXqR8pDwAyXtPTRwTDs5th0Dh7bqp3n9DklEc1KmNlmHtvDgH2RZd1huc6AAHbQXGQuLbN1V0qu-J52AeCKdYtnP2LEucYo1U23YuOq-zRT5p-mvdilsL4G7oFD4OgCt4jdBtbuF9X9YD3lAJo9o/s776/logo1.jpg" alt="Logo" class="img">
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <ul class="nav-links" id="navLinks">
+      <li onclick="closeMenu()"><a href="index.html">Home</a></li>
+      <li onclick="closeMenu()"><a href="aboutus.html">AboutUs</a></li>
+      <li onclick="closeMenu()"><a href="sevi.html">Services</a></li>
+      <li class="dropdown">
+        <a href="#">ITTools</a>
+        <div class="dropdown-content">
+          <a href="p1.html" target="_blank">Artificial Intelligence</a>
+          <a href="p2.html" target="_blank">Machine Learning</a>
+          <a href="p4.html" target="_blank">Data Science</a>
+          <a href="p3.html" target="_blank">Cyber Security</a>
+        </div>
+      </li>
+      <li onclick="closeMenu()"><a href="blog.html">Blog</a></li>
+      <li onclick="closeMenu()"><a href="faq.html">FAQ</a></li>
+      <li onclick="closeMenu()"><a href="quiz.html">Quiz</a></li>
+      <li onclick="closeMenu()"><a href="book&resou.html">Books&Resources</a></li>
+      <li onclick="closeMenu()"><a href="f1.html">Feedback</a></li>
+      <li onclick="closeMenu()"><a href="contact1.html">Contact</a></li>
+      <li onclick="closeMenu()"><a href="admin.html">Admin</a></li>
+    </ul>
+  </nav>
+
+  <h1> Let's QUIZ.....!!!!</h1> <!-- Title for the page -->
+
+  <div class="programs-container">
+    <a href="quizal.html" class="program-link program1">Artificial Intelligence</a>
+    <a href="quizcy.html" class="program-link program2">Cyber Security</a>
+    <a href="quizds.html" class="program-link program3">Data Science</a>
+    <a href="quizml.html" class="program-link program4">Machine Learning</a>
+  </div>
+
+  <script>
+    // Toggle Menu for mobile view
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('active');
+    }
+  </script>
+</body>
+</html>

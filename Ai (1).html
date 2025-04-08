@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Section with Animated Containers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #141413;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .dropdown {
+            background-color: #333;
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+        }
+
+        .dropdown select {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        /* Container Styling */
+        .container {
+            padding: 20px;
+            background-color: #f8f6d0;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Sub-container Styling */
+        .sub-container {
+            display: none;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <!-- Artificial Intelligence Section -->
+        <div id="ai" class="container" style="display: block;">
+            <h2>Artificial Intelligence</h2>
+            <button onclick="toggleSubContainers('ai')">View More</button>
+            <div id="ai-sub1" class="sub-container">
+                <h3> AI in Education (For Students & Learning)</h3>
+                <p>Overview:
+AI will personalize education by adapting to individual learning styles, automating administrative tasks, and enhancing accessibility. AI-driven tools will provide real-time assistance, making learning more interactive and engaging.
+
+
+</p>
+<hr>
+<p>Examples:
+✅ AI Tutors & Personalized Learning Assistants – AI-driven apps like "NeuroLearn" that tailor lessons based on students' strengths and weaknesses.<br>
+✅ Immersive AR/VR Classrooms – Platforms like "MetaEdu" using AI and VR to create virtual classrooms for interactive learning.<br>
+✅ AI Career Advisors – "FuturePath" AI predicting the best career options for students based on skills and future job market trends.<br>
+✅ AI Exam Proctors – Tools like "ProctorAI" monitoring exams and detecting cheating using facial recognition and behavior analysis.
+
+ </p>
+            </div>
+            <div id="ai-sub2" class="sub-container">
+                <h3>AI in Economics & Finance
+
+</h3>
+                <p>
+Overview:
+AI will optimize economic planning, predict financial risks, and automate decision-making in finance. Advanced tools will help individuals, businesses, and governments manage resources efficiently.
+
+
+</p><hr>
+<p>Examples:
+💰 AI-driven Market Forecasting – "QuantumTrade" using deep learning to predict stock market movements with high accuracy.<br>
+💰 Autonomous Financial Advisors – "FinBot" offering real-time investment advice and risk assessment.<br>
+💰 AI-powered Tax & Audit Assistants – "TaxGenius" automating tax calculations and fraud detection.<br>
+💰 Blockchain-AI Hybrid for Transactions – "TrustLedger" ensuring secure, transparent, and tamper-proof transactions
+ </p>
+            </div>
+			<div id="ai-sub3" class="sub-container">
+                <h3>AI in Social & Governance
+</h3>
+                <p>Overview:
+AI will improve governance, security, and public services by automating decision-making, enhancing surveillance, and optimizing resources. AI-driven tools will enhance safety, mental health support, and misinformation control.
+
+
+
+
+
+</p><hr>
+<p>
+Examples:
+🏙️ AI for Social Welfare – "AidNet" analyzing social trends to allocate resources for poverty alleviation efficiently.<br>
+🏙️ AI-based Crime Prevention – "CrimeWatch AI" predicting and preventing criminal activities using real-time analytics.<br>
+🏙️ Smart Traffic & City Management – "UrbanFlow AI" optimizing traffic lights, waste management, and city infrastructure.<br>
+🏙️ AI in Mental Health – "MindMate AI" offering AI-driven therapy sessions and emotional support analysis.
+
+      </div>
+			<div id="ai-sub3" class="sub-container">
+                <h3>  AI in Defence & Security
+</h3>
+                <p>Overview:
+AI will play a major role in national security by automating surveillance, enhancing cybersecurity, and developing autonomous military technologies. AI-driven defense systems will ensure faster and smarter decision-making in crisis situations.
+
+
+
+
+</p><hr>
+<p> Examples:
+🛡️ Autonomous Combat Drones – "SkyGuardian" AI-powered drones for border security and military reconnaissance.<br>
+🛡️ AI Cybersecurity Systems – "CyberShield AI" detecting and preventing cyber-attacks in real-time.<br>
+🛡️ AI-based Warfare Simulations – "BattleMind AI" training soldiers with AI-generated combat scenarios.<br>
+🛡️ AI-driven Space Surveillance – "OrbitGuard AI" monitoring space debris, satellite threats, and extraterrestrial activities.
+
+
+
+</p>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleSubContainers(category) {
+            var subContainers = document.querySelectorAll(`#${category} .sub-container`);
+            subContainers.forEach(sub => {
+                sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap%27" rel="stylesheet">
+   <link rel="stylesheet" href="css\nav1.css">
+    <script defer src="js\nav.js"></script>
+	
+	   <title>About Us</title>
+ 
+	<style>
+    @media(max-width:620px){
+      .logo img{
+        height: 6vh;
+      }
+      .img{
+        height: 5vh;
+      }
+    }
+  </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #121212;
+            
+        }
+        .about-us {
+            padding: 120px 20px;
+            background-color: #000000;
+
+        }
+        .about-us .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about-us .about-content {
+            flex: 1;
+            text-align: justify;
+        }
+        .about-us .about-content h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            border-left: 5px solid #50C878;
+            padding-left: 10px;
+        }
+        .about-us .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .about-us .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        .about-us .about-image img {
+            max-width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .about-us .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-us .about-image {
+                margin-top: 20px;
+            }
+        }
+		
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .marquee {
+            display: inline-block;
+            padding-right: 100%;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee img {
+            height: 150px;
+            margin-right: 30px;
+        }
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .box {
+            background-color: #f2f0c8;
+            color: black;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.2s ease;
+        }
+        .box .info {
+            font-size: 14px;
+            font-weight: normal;
+            color: #333;
+            margin-top: 10px;
+            display: none;
+        }
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .box:hover .info {
+            display: block;
+        }
+        h1 {
+            color: #fcfcfc;
+            font-size: 32px;
+            text-align: center;
+        }
+		.marquee-container {
+            width: 100%;
+            height: 400px; /* Height of the scrolling area */
+            overflow: hidden;
+            
+            padding: 20px 0;
+            border-radius: 8px;
+        }
+
+        .marquee-container h2 {
+            font-size: 30px;
+            color: #50C878;
+            margin-bottom: 10px;
+        }
+
+        marquee {
+            font-size: 20px;
+            line-height: 2;
+            color: #FFD700; /* Gold color for text */
+            font-weight: bold;
+        }
+
+        marquee a {
+            color: #FFD700;
+            text-decoration: none;
+            display: block; /* Break to a new line */
+            padding: 10px 0;
+        }
+
+        marquee a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #50C878;
+            width: 50%;
+            margin: 10px auto;
+        }
+         .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000;
+            padding: 15px 30px; /* Add horizontal padding */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeInNavbar 1s ease-out, backgroundColorChange 0.5s ease;
+        }
+        .navbar .logo img {
+            height: 10vh;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+        .navbar:hover .logo img {
+            transform: scale(1.1);
+        }
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .hamburger.active {
+            transform: rotate(90deg);
+            color: #007BFF;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px; /* Add space between the nav items */
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .nav-links li {
+            margin: 0;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            border-radius: 5px; /* Optional: round corners for buttons */
+            transition: background-color 0.3s;
+        }
+        .nav-links .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+        }
+        .nav-links .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .nav-links li:hover {
+            background-color: #555;
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                transform: translateX(-100%);
+            }
+            .nav-links.active {
+                display: flex;
+                transform: translateX(0);
+            }
+            .nav-links li {
+                padding: 10px 0;
+                text-align: center;
+                border-bottom: 1px solid #444;
+            }
+        }
+
+        /* Navbar fade-in animation */
+        @keyframes fadeInNavbar {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navbar background color change animation */
+        @keyframes backgroundColorChange {
+            0% {
+                background-color: #000;
+            }
+            100% {
+                background-color: #333;
+            }
+        }
+
+        /* Hover effect for navbar */
+        .nav-links li:hover {
+            background-color: #444;
+            transform: translateX(10px);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+    </style>
+    <link rel="stylesheet" href="css/nav.css">;
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+ <div class="bgimage">
+    
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiPNU7MB87dDSj3U8BAd0gaWOoK8ttyc-caRobRm7pXqR8pDwAyXtPTRwTDs5th0Dh7bqp3n9DklEc1KmNlmHtvDgH2RZd1huc6AAHbQXGQuLbN1V0qu-J52AeCKdYtnP2LEucYo1U23YuOq-zRT5p-mvdilsL4G7oFD4OgCt4jdBtbuF9X9YD3lAJo9o/s776/logo1.jpg" alt="Logo" class="img">
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links" id="navLinks">
+            <li onclick="closeMenu()"><a href="index.html">Home</a></li>
+            <li onclick="closeMenu()"><a href="aboutus.html">AboutUs</a></li>
+            <li onclick="closeMenu()"><a href="sevi.html">Services</a></li>
+            <li class="dropdown">
+                <a href="#">ITTools</a>
+                <div class="dropdown-content">
+                    <a href="p1.html" target="_blank">Artificial Intelligence</a>
+                    <a href="p2.html" target="_blank">Machine Learning</a>
+                    <a href="p4.html" target="_blank">Data Science</a>
+                    <a href="p3.html" target="_blank">Cyber Security</a>
+                </div>
+            </li>
+            <li onclick="closeMenu()"><a href="blog.html">Blog</a></li>
+            <li onclick="closeMenu()"><a href="faq.html">FAQ</a></li>
+            <li onclick="closeMenu()"><a href="quiz.html">Quiz</a></li>
+            <li onclick="closeMenu()"><a href="book&resou.html">Books&Resources</a></li>
+            <li onclick="closeMenu()"><a href="f1.html">Feedback</a></li>
+			
+            <li onclick="closeMenu()"><a href="contact1.html">Contact</a></li>
+        </ul>
+    </nav>
+  
+    
+  <div class="sqranimation" id="sqr">
+        <ul class="square">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        </div>
+
+<section class="about-us" id="about-us">
+    <div class="container">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>
+                "Welcome to Decoding the future – your ultimate destination for cutting-edge insights into AI tools, Data Science, Cybersecurity, and Machine Learning.
+                <br><br>
+                <strong>Who We Are</strong><br><br>
+                Advance Tech Citizenship is an innovative project founded by Pooja, Shreya, Pranali, and Siddhi, driven by a shared passion for technology, innovation, and digital transformation. We believe in empowering individuals with advanced knowledge of trending technologies to help them stay ahead in the ever-evolving digital world.
+                <br><br>
+                ✔ Artificial Intelligence (AI) Tools – Explore groundbreaking AI applications, frameworks, and automation tools revolutionizing industries.<br>
+                ✔ Data Science – Dive deep into data analytics, predictive modeling, and real-world case studies that drive impactful decision-making.<br>
+                ✔ Cybersecurity – Learn about the latest cyber threats, ethical hacking, and defensive strategies to stay secure in the digital landscape.<br>
+                ✔ Machine Learning – Unlock the power of ML algorithms, neural networks, and deep learning to enhance AI-driven solutions.
+                <br><br>
+                At Advance Tech Citizenship, we are committed to shaping the future of tech literacy, responsible innovation, and digital empowerment."
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="https://m.media-amazon.com/images/I/71jTtk-z6+L._AC_UF1000,1000_QL80_.jpg" alt="About Us">
+        </div>
+    </div>
+
+<h1>COLLEGES</h1>
+    <div class="marquee-container">
+	<br>
+        <div class="marquee">
+            <img src="https://www.diginnovators.com/wp-content/uploads/2024/02/COEP-logo.png" alt="Logo 1">
+            <img src="https://d107tqdgn7te45.cloudfront.net/images/logos/sicsr.png" alt="Logo 2">
+            <img src="https://www.vishwakarma-group.com/images/logos/VIT-logo.png" alt="Logo 3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1JCwD5I6frX2Y4WZ_MbXVNeJqRqA1tojLmcW4mfYu8S1yxyX0ycdSntoOR6V2CtgC_NQ&usqp=CAU" alt="Logo 4">
+            <img src="https://mitpune.ac.in/images/logo.png" alt="Logo 5">
+            <img src="https://doak.dypgroup.edu.in/wp-content/uploads/2020/08/eng_logo.png" alt="Logo 6">
+            <img src="https://www.spit.ac.in/wp-content/uploads/2021/01/LogoSPIT.png" alt="Logo 7">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRT3DD_pCRq-EcXFcv0H2YW75VmXNamAHekA&s" alt="Logo 8">
+            <img src="https://upload.wikimedia.org/wikipedia/en/5/5c/Indira_Gandhi_Institute_of_Technology%2C_Sarang_Logo.png" alt="Logo 9">
+            <img src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/institutes/logo/170x170/1890.jpg?v=1725016136" alt="Logo 10">
+        </div>
+    </div>
+	
+	 <h1>Applied Fields</h1>
+	 <br><br><br>
+    <div class="container">
+        <div class="box">
+            Artificial Intelligence
+            <div class="info">1. Robotics & Automation<br>2. NLP<br>3. Computer Vision<br>4. AI in Healthcare<br>5. AI in Finance</div>
+        </div>
+        <div class="box">
+            Cyber Security
+            <div class="info">1. Ethical Hacking<br>2. Network Security<br>3. Cloud Security<br>4. Digital Forensics<br>5. Blockchain Security</div>
+        </div>
+        <div class="box">
+            Data Science
+            <div class="info">1. Big Data Analytics<br>2. Business Intelligence<br>3. Data Engineering<br>4. Data-Driven Marketing<br>5. AI & Data Science in Healthcare</div>
+        </div>
+        <div class="box">
+            Machine Learning
+            <div class="info">1. Predictive Analytics<br>2. Recommendation Systems<br>3. Speech Recognition<br>4. Bioinformatics<br>5. ML in Finance</div>
+        </div>
+    </div>
+<br><br>
+	<div class="marquee-container">
+        <center><h2>Courses in Four Sectors</h2></center>
+        <marquee behavior="scroll" direction="up" scrollamount="5">
+            <center><a href="#">Artificial Intelligence: Deep Learning Specialization (Coursera – Andrew Ng)<br>
+                Artificial Intelligence A-Z (Udemy)<br>
+                Machine Learning with Python (edX)
+            </a>
+           
+            <a href="#">Data Science: Data Science Specialization (Coursera)<br>
+                Python for Data Science (Udacity)<br>
+                IBM Data Science Certification (Coursera)
+            </a>
+            
+            <a href="#">Cybersecurity: Certified Ethical Hacker (CEH)<br>
+                Cybersecurity Fundamentals (Coursera)
+            </a>
+            
+            <a href="#">Machine Learning: Machine Learning (Coursera – Andrew Ng)<br>
+                Python for Machine Learning (Udemy)<br>
+                Applied Machine Learning (edX)
+            </a></center>
+        </marquee>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            
+            <!-- Logo Section -->
+            <div class="footer-logo">
+                <a href="#" class="logo-link">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiPNU7MB87dDSj3U8BAd0gaWOoK8ttyc-caRobRm7pXqR8pDwAyXtPTRwTDs5th0Dh7bqp3n9DklEc1KmNlmHtvDgH2RZd1huc6AAHbQXGQuLbN1V0qu-J52AeCKdYtnP2LEucYo1U23YuOq-zRT5p-mvdilsL4G7oFD4OgCt4jdBtbuF9X9YD3lAJo9o/s776/logo1.jpg" 
+                        alt="IT Tools Logo" class="logo"/>
+                </a>
+            </div>
+
+            <!-- Information Section -->
+            <div class="footer-info">
+                
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Satara, India</p>
+                    <p><a class="footer-link" href="mailto:ittools512@gmail.com">ittools512@gmail.com</a></p>
+                </div>
+
+                <!-- Developer Info -->
+                <div class="footer-section">
+                    <h3>Developers 2025</h3>
+                    <p>Maharshi Karve Mahila Maha Vidyalaya</p>
+                    <p>Pranali Sabale | Pooja Sutar | Siddhi Sulke | Shreya Magare</p>
+                </div>
+
+                <!-- Social Media & Additional Links -->
+                <div class="footer-bottom">
+                    <div class="social-links">
+                        <a href="#" class="footer-link"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="footer-link"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="footer-link"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </div>
+                    <p class="copyright">© 2025 IT Tools | All Rights Reserved</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Animate the boxes when the page loads
+    gsap.to(".box", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out"
+    });
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.hamburger').classList.toggle('active');
+        }
+        function closeMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
+</script>
+<script src="nav.js"></script>
+
+</body>
+</html>
